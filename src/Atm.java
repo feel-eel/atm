@@ -1,10 +1,5 @@
 import java.util.Scanner;
 
-
-/// Account number: 100000001
-/// Pin: 1234
-
-
 public class Atm {
 	private BankAccount bankAccount;
 	
@@ -31,6 +26,7 @@ public class Atm {
 		if (pin == bankAccount.getUser().getPIN()) {
 			System.out.println("Enter account number:");
 			num = in.nextLong();
+
 			if (num == bankAccount.getAccountNumber()) {
 			
 				int option = 0;
@@ -94,7 +90,6 @@ public class Atm {
 	
 	
 	public static void main(String[] args) {
-	
 		Atm atm = new Atm(new BankAccount(0, new User(1234, "Julia", "2/11/01", "3 Cherry Road")));
 		
 		atm.Menu();
