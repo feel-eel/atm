@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+
+/// Account number: 100000001
+/// Pin: 1234
+
+
 public class Atm {
 	private BankAccount bankAccount;
 	
@@ -17,11 +22,15 @@ public class Atm {
 	
 	public void Menu() {
 		Scanner in = new Scanner(System.in);
+		int pin = 0;
+		long num = 0;
+		
+		while (pin != bankAccount.getUser().getPIN() || num != bankAccount.getAccountNumber()) {
 		System.out.println("Enter pin:");
-		int pin = in.nextInt();
+		 pin = in.nextInt();
 		if (pin == bankAccount.getUser().getPIN()) {
 			System.out.println("Enter account number:");
-			long num = in.nextLong();
+			num = in.nextLong();
 			if (num == bankAccount.getAccountNumber()) {
 			
 				int option = 0;
@@ -30,7 +39,7 @@ public class Atm {
 					 option = in.nextInt();
 					 
 				if (option != 1 && option != 2 && option != 3 && option != 4) {
-					System.out.println("Enter amount greater than 0");
+					System.out.println("Enter 1, 2, 3, or 4");
 				} 
 				
 				else if (option == 1) {
@@ -77,6 +86,7 @@ public class Atm {
 		}
 		else {
 			System.out.println("Credentials invalid");
+		}
 		}
 		in.close();
 	}
